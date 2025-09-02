@@ -1,13 +1,13 @@
-package com.jvlcode;
+package com.jvlcode.todo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ToDoApplication {
+public class TodoApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ToDoApplication.class, args);
+		SpringApplication.run(TodoApplication.class, args);
 	}
 
 }
