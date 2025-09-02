@@ -1,0 +1,15 @@
+
+<div class="container">
+  <h1>Springboot + Angular CRUD</h1>
+  <form (ngSubmit)="createTask()">
+  <div class="row mt-5">
+    <div class="col-6">
+      <input type="text" class="form-control" [(ngModel)]="newTask.description" name="newTaskDescription">
+    </div>
+    <div class="col-2">
+      <button class="btn btn-success" type="submit"> Add Task</button>
+    </div>
+  </div>
+  </form>
+  
+</div>
