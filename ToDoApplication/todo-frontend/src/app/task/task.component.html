@@ -10,6 +10,27 @@
       <button class="btn btn-success" type="submit"> Add Task</button>
     </div>
   </div>
+  <div class="row mt-5">
+    <div class="col-6">
+      <div *ngIf="!(tasks.length>0)else taskList">
+          <h3>No Data</h3>
+      </div>
+      <ng-template #taskList>
+        <ul class="list-group" *ngFor="let task of tasks;">
+          <div class="list-group-item bg-secondary text-light">
+            <div class="row">
+              <div class="col-6">
+                <p>{{task.description}}</p>
+              </div>
+              <div class="col-6">
+                Edit|Delete
+              </div>
+            </div>
+          </div>
+        </ul>
+      </ng-template>
+    </div>
+  </div>
   </form>
   
 </div>

@@ -15,5 +15,13 @@ export class TaskService {
     createTask(newTask : Task) : Observable<Task>{
       return this.httpclient.post<Task>(this.apiUrl,newTask);
     }
+
+    getAllTasks() :Observable<Task[]>{
+      return this.httpclient.get<Task[]>(this.apiUrl)
+    }
+
+    updateTask(taskId: Number, updatedTask:Task) :Observable<Task>{
+      return this.httpclient.put<Task>(this.apiUrl+'/'+taskId,updatedTask);
+    }
   
 }
