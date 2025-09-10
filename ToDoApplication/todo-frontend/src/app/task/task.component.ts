@@ -47,10 +47,17 @@ export class TaskComponent implements OnInit {
         .subscribe((result) => {
          const index=  this.tasks.findIndex((task) => task.id == this.editingTask!.id)
          if(index!=-1){
-          
+          this.tasks[index]= result;
+          //close edit
+          this.cancelEdit()
          }
         })
       }
+    }
+
+    cancelEdit(){
+      this.editingTask = null;
+      this.updatedTask = {description:"", completed:false};
     }
 
 }
