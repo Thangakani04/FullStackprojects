@@ -2,4 +2,5 @@ SELECT id, completed, description
 	FROM public.tasks;
 	delete from public.tasks where description='';
 	commit;
-	ALTER SEQUENCE tasks_id_seq RESTART WITH 13;
+	alter table public.tasks auto_increment = 3;  //MySql
+	ALTER SEQUENCE tasks_id_seq RESTART WITH 13;  //Postgresql
