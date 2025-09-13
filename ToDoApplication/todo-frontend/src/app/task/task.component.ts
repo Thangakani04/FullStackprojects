@@ -27,6 +27,7 @@ export class TaskComponent implements OnInit {
     createTask():void{
       this.taskservice.createTask(this.newTask).subscribe((createdTask) =>{
         this.newTask ={description:"",completed:false}; //reset task
+        this.tasks.push(createdTask);
       })
     }
 
@@ -58,6 +59,17 @@ export class TaskComponent implements OnInit {
     cancelEdit(){
       this.editingTask = null;
       this.updatedTask = {description:"", completed:false};
+    }
+
+    deleteTask(taskId: any){
+      if(confirm('Are you sure want to delete?'))
+      this.taskservice.deleteTask(taskId)
+      .subscribe(() => {              //this subscribe function is used for the data will get deleted after taht wat it will do that we need to describle here
+          this.tasks= this.tasks.filter((task) => task.id !== taskId)
+          if(this.editingTask&& this.editingTask.id == taskId){
+
+          }
+      })              
     }
 
 }

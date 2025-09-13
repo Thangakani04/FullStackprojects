@@ -1,0 +1,133 @@
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  width: 100%;
+}
+
+.task-text {
+  flex: 1;
+  margin-right: 1rem;
+  white-space: normal; /* allow wrapping */
+  word-break: break-word; /* break long words */
+}
+
+.app-title {
+  font-weight: 700;
+  color: #f8f9fa; /* Light text */
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
+  letter-spacing: 1px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  border-bottom: 2px solid #b5d0c3; /* Bootstrap success green */
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.header-box {
+  background-color: rgba(255, 255, 255, 0.1); /* Slight transparent white */
+  padding: 20px 30px;
+  border: 2px solid #198754; /* Bootstrap green */
+  border-radius: 10px;
+  width: fit-content;
+  margin: 30px auto; /* Centers horizontally */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.header-box h1 {
+  margin: 0;
+  font-weight: 700;
+  color: #f8f9fa;
+  text-decoration: none;
+  border-bottom: none;
+  box-shadow: none;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+  background: linear-gradient(135deg, #0b3c91, #144d91); /* Blue gradient background */
+  font-family: Arial, sans-serif;
+  color: white;
+}
+
+/* Wave container fixed at bottom */
+.wave-background {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 200%;
+  height: 200px;
+  background: #8c929b;
+  border-radius: 50% / 100%;
+  opacity: 0.8;
+  animation: waveAnimation 10s linear infinite;
+  z-index: 0;
+}
+
+.wave-background:nth-child(2) {
+  background: #0a3b8c;
+  animation-delay: 5s;
+  opacity: 0.6;
+  bottom: 30px;
+}
+
+@keyframes waveAnimation {
+  0% {
+    transform: translateX(0) translateY(0);
+  }
+  50% {
+    transform: translateX(-25%) translateY(15px);
+  }
+  100% {
+    transform: translateX(0) translateY(0);
+  }
+}
+
+.app-container {
+  position: relative;
+  z-index: 1;
+  background-color: transparent; /* or use the same blue as the body background */
+  padding: 20px;
+  margin: 0 auto;
+  max-width: 900px;
+  border-radius: 8px;
+  color: white;
+  box-shadow: none; /* remove any shadow */
+  border: none; /* remove any border */
+}
+
+.save-btn {
+  background-color: #5b95d2; /* Dark Blue */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 16px;
+  box-shadow: 0 2px 6px rgba(0, 64, 133, 0.4);
+  transition: background-color 0.3s ease;
+}
+
+.save-btn:hover {
+  background-color: #003366;
+}
+
+.cancel-btn {
+  background-color: #5b95d2; /* Dark Blue */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 16px;
+  box-shadow: 0 2px 6px rgba(0, 64, 133, 0.4);
+  transition: background-color 0.3s ease;
+}
+
+.cancel-btn:hover {
+  background-color: #e2e6ea;
+  color: #212529;
+  border-color: #dae0e5;
+}

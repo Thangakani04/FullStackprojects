@@ -1,55 +1,97 @@
+<body>
+  <!-- Two overlapping wave divs for animation -->
+  <div class="wave-background"></div>
+  <div class="wave-background"></div>
 
-<div class="container">
-  <h1>Springboot + Angular CRUD</h1>
-  <form (ngSubmit)="createTask()">
-  <div class="row mt-5">
-    <div class="col-6">
-      <input type="text" class="form-control" [(ngModel)]="newTask.description" name="newTaskDescription">
-    </div>
-    <div class="col-2">
-      <button class="btn btn-success" type="submit"> Add Task</button>
-    </div>
-  </div>
-  <div class="row mt-5">
-    <div class="col-6">
-      <div *ngIf="!(tasks.length>0)else taskList">
-          <h3>No Data</h3>
-      </div>
-      <ng-template #taskList>
-        <ul class="list-group" *ngFor="let task of tasks;">
-          <div class="list-group-item bg-secondary text-light">
-            <div class="row">
-              <div class="col-6">
-                <p>{{task.description}}</p>
-              </div>
-              <div class="col-6">
-                <button class="btn btn-light" (click)="editTask(task)">Edit</button>
-              </div>
-              <div class="col-6">
-                <div *ngIf="editingTask">
-                  <form (ngSubmit)="updateTask()">
-                    <label for="editTaskDescription">Edit Task:</label>
-                    <div class="form-group">
-                      <input 
-                       type="text" 
-                       [(ngModel)]="updatedTask.description"
-                       name="updateTaskDescription"
-                       class="form-control"
-                       id="editTaskDescription"
-                       >
-                    </div>
-                    <div class="form-group mt-3">
-                      <button type="submit" class="btn btn-success">Save</button>
-                      <button class="btn btn-danger" (click) ="cancelEdit()">Cancel</button>
-                    </div>
-                  </form>
-                </div>
-              </div>        
+  <div class="app-container">
+    <div class="d-flex justify-content-center mt-5">
+      <div class="task-box p-4 w-100" style="max-width: 1000px;">
+        <div class="header-box text-center">
+          <h1 class="app-title">Springboot + Angular CRUD</h1>
+        </div>
+
+        <!-- Add Task Form -->
+        <form (ngSubmit)="createTask()">
+          <div class="row mt-4">
+            <div class="col-8">
+              <input
+                type="text"
+                class="form-control"
+                [(ngModel)]="newTask.description"
+                name="newTaskDescription"
+                placeholder="Enter a task"
+              />
+            </div>
+            <div class="col-4">
+              <button class="btn btn-success w-100" type="submit">Add Task</button>
             </div>
           </div>
-        </ul>
-      </ng-template>
+        </form>
+
+        <!-- Main Content: Task List & Edit Form side by side -->
+        <div class="row mt-5">
+          <!-- Left: Task List -->
+          <div class="col-md-6">
+            <div *ngIf="!(tasks.length > 0); else taskList">
+              <h3 class="text-center">No Data</h3>
+            </div>
+
+            <ng-template #taskList>
+              <ul class="list-group">
+                <li
+                  class="list-group-item bg-secondary text-light"
+                  *ngFor="let task of tasks;"
+                >
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="task-text">{{ task.description }}</div>
+                    <div class="d-flex gap-2">
+                      <button
+                        class="btn btn-light btn-sm"
+                        (click)="editTask(task)"
+                      >
+                        Edit
+                      </button>
+                      <button
+                        class="btn btn-light btn-sm"
+                        (click)="deleteTask(task.id)"
+                      >
+                        Delete
+                      </button>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </ng-template>
+          </div>
+
+          <!-- Right: Edit Task Form -->
+          <div class="col-md-6">
+            <div *ngIf="editingTask">
+              <form (ngSubmit)="updateTask()">
+                <label for="editTaskDescription" class="form-label"
+                  >Edit Task:</label
+                >
+                <div class="form-group">
+                  <input
+                    type="text"
+                    [(ngModel)]="updatedTask.description"
+                    name="updateTaskDescription"
+                    class="form-control"
+                    id="editTaskDescription"
+                  />
+                </div>
+                
+                  <div class="form-group mt-3 d-flex gap-2">
+  <button type="submit" class="btn save-btn">Save</button>
+  <button type="button" class="btn cancel-btn" (click)="cancelEdit()">Cancel</button>
+</div>
+                
+              </form>
+            </div>
+          </div>
+        </div>
+        <!-- end row -->
+      </div>
     </div>
   </div>
-  </form>  
-</div>
+</body>

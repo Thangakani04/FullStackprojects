@@ -21,7 +21,11 @@ export class TaskService {
     }
 
     updateTask(taskId: Number, updatedTask:Task) :Observable<Task>{
-      return this.httpclient.put<Task>(this.apiUrl+'/'+taskId,updatedTask);
+      return this.httpclient.put<Task>(this.apiUrl+'/'+taskId,updatedTask)
+    }
+
+    deleteTask(taskId: Number){
+      return this.httpclient.delete(this.apiUrl+'/'+taskId)
     }
   
 }
