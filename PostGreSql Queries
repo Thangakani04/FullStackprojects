@@ -1,0 +1,5 @@
+SELECT id, completed, description
+	FROM public.tasks;
+	delete from public.tasks where description='';
+	commit;
+	ALTER SEQUENCE tasks_id_seq RESTART WITH 13;
