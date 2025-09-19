@@ -5,5 +5,5 @@ SELECT *
 	FROM public.tasks;
 	commit;
 select id from public.tasks;
-	alter table public.tasks auto_increment = 3;  //MySql
+	alter table public.tasks auto_increment = 7;  //MySql
 	ALTER SEQUENCE tasks_id_seq RESTART WITH 13;  //Postgresql
